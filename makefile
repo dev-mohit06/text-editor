@@ -18,6 +18,10 @@ CFLAGS = -I$(INCLUDE_DIR)
 # Target to build the executable
 all: $(OUTPUT) run
 
+# Create the build directory if it doesn't exist
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
+
 # Link object files to create the final executable
 $(OUTPUT): $(SRC_FILES)
 	$(CC) $(CFLAGS) $(SRC_FILES) -o $(OUTPUT)
